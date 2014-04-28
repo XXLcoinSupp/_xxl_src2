@@ -1,0 +1,9 @@
+Building XXLcoin
+
+See doc/readme-qt.rst for instructions on building XXLcoin-QT,
+the intended-for-end-users, nice-graphical-interface, reference
+implementation of XXLcoin.
+
+See doc/build-*.txt for instructions on building XXLcoind,
+the intended-for-services, no-graphical-interface, reference
+implementation of XXLcoin.
