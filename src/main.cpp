@@ -842,7 +842,7 @@ int static generateMTRandom(unsigned int s, int range)
 
 int64 static GetBlockValue(int nHeight, int64 nFees, uint256 prevHash)
 {
-        int64 nSubsidy = 50000 * COIN;
+        int64 nSubsidy = 250000 * COIN;
          
         std::string cseed_str = prevHash.ToString().substr(7,7);
         const char* cseed = cseed_str.c_str();
@@ -853,30 +853,21 @@ int64 static GetBlockValue(int nHeight, int64 nFees, uint256 prevHash)
         int rand3 = 0;
         int rand4 = 0;
         int rand5 = 0;
-		int randx = 0;
-		
+ 
         if(nHeight < 11)    
         {
                 nSubsidy = 9177555000 * COIN;
         } 
-        else if(nHeight < 65000)   
+        else if(nHeight < 100000)   
         {
                 nSubsidy = (1 + rand) * COIN;
-        }
-		else if(nHeight < 100000)      
-        {
-                cseed_str = prevHash.ToString().substr(7,7);
-                cseed = cseed_str.c_str();
-                seed = hex2long(cseed);
-                randx = generateMTRandom(seed, 4999990);
-                nSubsidy = (1 + randx) * COIN;
         }
         else if(nHeight < 200000)      
         {
                 cseed_str = prevHash.ToString().substr(7,7);
                 cseed = cseed_str.c_str();
                 seed = hex2long(cseed);
-                rand1 = generateMTRandom(seed, 2499990);
+                rand1 = generateMTRandom(seed, 4999990);
                 nSubsidy = (1 + rand1) * COIN;
         }
         else if(nHeight < 300000)      
@@ -884,7 +875,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees, uint256 prevHash)
                 cseed_str = prevHash.ToString().substr(6,7);
                 cseed = cseed_str.c_str();
                 seed = hex2long(cseed);
-                rand2 = generateMTRandom(seed, 1209990);
+                rand2 = generateMTRandom(seed, 2899990);
                 nSubsidy = (1 + rand2) * COIN;
         }
         else if(nHeight < 400000)      
@@ -892,7 +883,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees, uint256 prevHash)
                 cseed_str = prevHash.ToString().substr(7,7);
                 cseed = cseed_str.c_str();
                 seed = hex2long(cseed);
-                rand3 = generateMTRandom(seed, 499990);
+                rand3 = generateMTRandom(seed, 1449990);
                 nSubsidy = (1 + rand3) * COIN;
         }
         else if(nHeight < 500000)      
@@ -900,7 +891,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees, uint256 prevHash)
                 cseed_str = prevHash.ToString().substr(7,7);
                 cseed = cseed_str.c_str();
                 seed = hex2long(cseed);
-                rand4 = generateMTRandom(seed, 249900);
+                rand4 = generateMTRandom(seed, 824990);
                 nSubsidy = (1 + rand4) * COIN;
         }
         else if(nHeight < 600000)      
@@ -908,7 +899,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees, uint256 prevHash)
                 cseed_str = prevHash.ToString().substr(6,7);
                 cseed = cseed_str.c_str();
                 seed = hex2long(cseed);
-                rand5 = generateMTRandom(seed, 120090);
+                rand5 = generateMTRandom(seed, 512490);
                 nSubsidy = (1 + rand5) * COIN;
         }
 	
